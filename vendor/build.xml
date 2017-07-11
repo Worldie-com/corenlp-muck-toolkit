@@ -7,11 +7,11 @@
 
     <target name="download">
         <mkdir dir="apache-solr"/>
-        <get src="http://mirror.cc.columbia.edu/pub/software/apache/lucene/solr/4.8.0/solr-4.8.0.zip" dest="apache-solr" verbose="true" usetimestamp="true"/>
+        <get src="https://archive.apache.org/dist/lucene/solr/4.8.0/solr-4.8.0.zip" dest="apache-solr" verbose="true" usetimestamp="true"/>
         <unzip src="apache-solr/solr-4.8.0.zip" dest="apache-solr"/>
 
         <mkdir dir="apache-tomcat"/>
-        <get src="http://mirror.cc.columbia.edu/pub/software/apache/tomcat/tomcat-7/v7.0.53/bin/apache-tomcat-7.0.53.zip" dest="apache-tomcat" verbose="true" usetimestamp="true"/>
+        <get src="https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.53/bin/apache-tomcat-7.0.53.zip" dest="apache-tomcat" verbose="true" usetimestamp="true"/>
         <unzip src="apache-tomcat/apache-tomcat-7.0.53.zip" dest="apache-tomcat"/>
 
         <mkdir dir="aws-java-sdk"/>
@@ -23,7 +23,7 @@
         <unzip src="elasticsearch/elasticsearch-1.1.1.zip" dest="elasticsearch"/>
 
         <mkdir dir="google-gson"/>
-        <get src="https://google-gson.googlecode.com/files/google-gson-2.2.4-release.zip" dest="google-gson" verbose="true" usetimestamp="true"/>
+        <get src="http://f19.wapka-files.com/download/2/5/a/456248_25aa08d3392e2e365e984873.zip/862a5b7af6e7d11a3b93/google-gson-2.2.4-release.zip" dest="google-gson" verbose="true" usetimestamp="true"/>
         <unzip src="google-gson/google-gson-2.2.4-release.zip" dest="google-gson"/>
 
         <mkdir dir="jaxrs-ri"/>
