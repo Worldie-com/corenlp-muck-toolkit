@@ -1,8 +1,9 @@
 
-To build, you will need to do the following...
+To build, you will need to do the following:
 
+1. Download JARs:
 
-1. Download Jars:
+```
 http://nlp.stanford.edu/software/stanford-classifier-2012-11-11.zip
 http://nlp.stanford.edu/software/stanford-corenlp-full-2012-11-12.zip
 http://nlp.stanford.edu/software/stanford-ner-2012-11-11.zip
@@ -13,9 +14,11 @@ http://sourceforge.net/projects/jsap/files/jsap/2.1/JSAP-2.1-src.zip
 http://jsoup.org/packages/jsoup-1.7.1.jar
 http://downloads.sourceforge.net/project/opencsv/opencsv/2.3/opencsv-2.3-src-with-libs.tar.gz
 http://google-gson.googlecode.com/files/google-gson-2.2.2-release.zip
+```
 
+2. Extract into `$LIBRARIES`:
 
-2. Extract into $LIBRARIES:
+```
 $LIBRARIES/stanford-classifier/stanford-classifier-2012-11-11/...
 $LIBRARIES/stanford-corenlp/stanford-corenlp-2012-11-12/...
 $LIBRARIES/stanford-ner/stanford-ner-2012-11-11/...
@@ -25,6 +28,6 @@ $LIBRARIES/jsap/...
 $LIBRARIES/jsoup/...
 $LIBRARIES/opencsv/opencsv-2.3/...
 $LIBRARIES/google-gson/google-gson-2.2.2/...
-
+```
 
 3.
