@@ -7,22 +7,32 @@
 . ~ec2-user/.bashrc         # XXX  Fix this!
 export JAVA_HOME=/usr/lib/jvm/jre
 export EC2_HOME=/opt/aws/apitools/ec2
-TASKSERVERID=`/opt/aws/bin/ec2-describe-instances | grep TaskServer | cut -f 3`
-TASKSERVERHOST=`/opt/aws/bin/ec2-describe-instances | grep ^INSTANCE | grep $TASKSERVERID | cut -f 5`
-LOGFILE=/news/log/worker-`date +%Y-%m-%d`.log
+TASKSERVERID=$(/opt/aws/bin/ec2-describe-instances | grep TaskServer | cut -f 3)
+TASKSERVERHOST=$(/opt/aws/bin/ec2-describe-instances | grep ^INSTANCE | grep "$TASKSERVERID" | cut -f 5)
+LOGFILE=/news/log/worker-$(date +%Y-%m-%d).log
 
 case $1 in
     start)
         echo "TaskWorker starting"
-        /usr/bin/java -Xmx3g -cp "/news/lib/*" edu.stanford.pcl.news.task.TaskWorker service --taskserver=$TASKSERVERHOST 1>$LOGFILE 2>&1 &
+        /usr/bin/java \
+          -Xmx3g \
+          -cp "/news/lib/*" \
+          edu.stanford.pcl.news.task.TaskWorker service \
+          --taskserver="${TASKSERVERHOST}" \
+          1> "${LOGFILE}" 2>&1 &
         ;;
     restart)
         if pgrep -f "TaskWorker service"; then
             echo "TaskWorker stopping"
-            kill `pgrep -f "TaskWorker service"`
+            kill "$(pgrep -f 'TaskWorker service')"
         fi
         echo "TaskWorker starting"
-        /usr/bin/java -Xmx3g -cp "/news/lib/*" edu.stanford.pcl.news.task.TaskWorker service --taskserver=$TASKSERVERHOST 1>$LOGFILE 2>&1 &
+        /usr/bin/java \
+          -Xmx3g \
+          -cp "/news/lib/*" \
+          edu.stanford.pcl.news.task.TaskWorker service \
+          --taskserver="${TASKSERVERHOST}" \
+          1> "${LOGFILE}" 2>&1 &
         ;;
     status)
         if pgrep -f "TaskWorker service"; then
@@ -34,7 +44,7 @@ case $1 in
     stop)
         echo "TaskWorker stopping"
         if pgrep -f "TaskWorker service"; then
-            kill `pgrep -f "TaskWorker service"`
+            kill "$(pgrep -f 'TaskWorker service')"
         else
             echo "TaskWorker already stopped"
         fi

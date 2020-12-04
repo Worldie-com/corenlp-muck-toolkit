@@ -1,5 +1,3 @@
-To build, see [BUILD.md](`BUILD.md`):
-
 To run, see following:
 
 
